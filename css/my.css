@@ -1,0 +1,31 @@
+html,
+body {
+	height: 100%;
+}
+.backTop {
+    position: fixed;
+    bottom: 3rem;
+    right: .5rem;
+    width: 2rem;
+    height: 2rem;
+    background: url(../img/backtop.png) no-repeat;
+    background-size: 100%;
+    z-index: 999;
+}
+.topText {
+    position: absolute;
+    top: 0.6rem;
+    right: .2rem;
+    display: inline-block;
+    font-size: .1rem;
+}
+#my-search{
+	width: 15rem;
+    margin-top: 10px;
+    margin-left: 35px;
+	font-size: .1rem;
+}
+.my-text{
+	color: #007aff;
+	font-size: .9rem;
+}

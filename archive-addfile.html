@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta content="no" http-equiv="imagetoolbar">
+		<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,width=device-width,user-scalable=no">
+		<title>视力档案</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="archive/css/public.css">
+		<link rel="stylesheet" type="text/css" href="archive/css/my.css">
+	</head>
+	<body>
+		<div id="indexPage" style="opacity: 1;">
+			<div class="banner"><img src="archive/img/banner1.jpg"></div>
+			<div class="page typePage on">
+				<div class="tit">选择您的类型？</div>
+				<ul class="tabType">
+					<li class="on">成人</li>
+					<li class="">儿童</li>
+				</ul>
+				<div class="subbtn">下一步</div>
+			</div>
+
+			<!-- 学生信息页 start -->
+			<div class="page infoPage ">
+				<ul class="list">
+					<li class="clear">
+						<div class="fl">姓名</div>
+						<div class="con"><input placeholder="输入孩子姓名"></div>
+					</li>
+					<li class="clear bortop">
+						<div class="fl">身份证号</div>
+						<div class="con"><input placeholder="输入孩子身份证号"></div>
+					</li>
+				</ul>
+
+				<ul class="list mt10">
+					<li class="clear on">
+						<div class="fl">妇幼保健院</div>
+						<div class="con">
+							<div class="item">
+								<div class="placeholder">请选择妇幼保健院</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="subbtn">确定</div>
+			</div>
+
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		var arc_type=0;
+		$('.tabType li').bind('click',function () {
+			$(this).siblings().removeClass();
+			$(this).addClass("on");
+			arc_type = $(this).index();
+		})
+		$('.subbtn').bind('click',function (event) {
+			console.log("值"+arc_type);
+			if(arc_type==0){
+				location.href="archive-adult.html";
+			}else{
+				location.href="archive-student.html";
+			}
+		})
+	</script>
+</html>
