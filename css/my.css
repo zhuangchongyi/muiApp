@@ -29,3 +29,7 @@ body {
 	color: #007aff;
 	font-size: .9rem;
 }
+.mui-slider{
+    width: 95%;
+    margin: 0px auto	
+}

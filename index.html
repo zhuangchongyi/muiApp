@@ -13,8 +13,8 @@
 			padding: 10px 0 0 0px; 
 		}
 		.mui-table-view.mui-grid-view {
-			border-bottom: 5px #efeff4 solid;
-			border-top: 5px #efeff4 solid;
+			border-bottom: 8px #efeff4 solid;
+			border-top: 8px #efeff4 solid;
 		}
 		.mui-card-header.mui-card-media {
 			background-color: #ddfdff;
@@ -23,7 +23,7 @@
 			background-color: #fff;
 		}
 		.mui-slider,.mui-table-view {
-			border-bottom: 5px #efeff4 solid;
+			border-bottom: 8px #efeff4 solid;
 		}
 		.mui-slider-indicator.mui-segmented-control {
 			background-color: #fff;
@@ -157,49 +157,51 @@
 			
 			<!-- icon栏 -->
 			<ul class="mui-table-view mui-grid-view mui-grid-12">
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
 					<a href="#">
 						<span class="mui-icon mui-icon-home"></span>
 						<div class="mui-media-body">首页</div>
 					</a>
 				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
 					<a href="#">
 						<span class="mui-icon iconfont icon-shop"></span>
 						<div class="mui-media-body">商城</div>
 					</a>
 				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
 					<a href="#" id="archive-addfile">
 						<span class="mui-icon iconfont icon-dangan"></span>
 						<div class="mui-media-body">创建档案</div>
 					</a>
 				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
 					<a href="#">
 						<span class="mui-icon iconfont icon-rili"></span>
 						<div class="mui-media-body">签到</div>
 					</a>
 				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+			<!-- </ul>
+			<ul class="mui-table-view mui-grid-view mui-grid-12"> -->
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
 					<a href="#">
 						<span class="mui-icon iconfont icon-renwu"></span>
 						<div class="mui-media-body">任务</div>
 					</a>
 				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
 					<a href="#">
 						<span class="mui-icon iconfont icon-yanjing"></span>
 						<div class="mui-media-body">测试</div>
 					</a>
 				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
 					<a href="#" id="college-index">
 						<span class="mui-icon iconfont icon-zixun"></span>
 						<div class="mui-media-body">商学院</div>
 					</a>
 				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
 					<a href="#">
 						<span class="mui-icon iconfont icon-qita"></span>
 						<div class="mui-media-body">更多</div>
@@ -428,7 +430,7 @@
 		});
 		//滚轮
 		mui('.mui-scroll-wrapper').scroll({
-			deceleration: 0.5 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			deceleration: 0.0006 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
 		});
 		
 		//跳转个人档案

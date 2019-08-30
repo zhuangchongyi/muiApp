@@ -113,10 +113,18 @@ input:-ms-input-placeholder {
 	top: 0;
 	height: 55px;
 }
-
 .subbtn {
+    margin: 30px auto;
+    width: 80%;
+    background-color: #3a9fed;
+    line-height: 44px;
+    border-radius: 22px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+}
+/* .subbtn {
 	position: absolute;
-	bottom: 10%;
 	left: 10%;
 	width: 80%;
 	background-color: #3a9fed;
@@ -125,7 +133,7 @@ input:-ms-input-placeholder {
 	font-size: 16px;
 	color: #fff;
 	text-align: center;
-}
+} */
 
 .typePage .tit {
 	text-align: center;
