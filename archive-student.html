@@ -78,6 +78,8 @@
 	<script src="js/mui.poppicker.js"></script>
 	<script src="js/city.data.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/student.data.js" type="text/javascript" charset="utf-8"></script>
+	
 	<script>
 		(function($, doc) {
 			$.init();
@@ -99,23 +101,7 @@
 				
 				//年级选项
 				var classPicker = new $.PopPicker();
-				classPicker.setData([
-					{value: '1',text: '1班'},{value: '2',text: '2班'},{value: '3',text: '3班'},
-					{value: '4',text: '4班'},{value: '5',text: '5班'},{value: '6',text: '6班'},
-					{value: '7',text: '7班'},{value: '8',text: '8班'},{value: '9',text: '9班'},
-					{value: '10',text: '10班'},{value: '11',text: '11班'},{value: '12',text: '12班'},
-					{value: '13',text: '13班'},{value: '14',text: '14班'},{value: '15',text: '15班'},
-					{value: '16',text: '16班'},{value: '17',text: '17班'},{value: '18',text: '18班'},
-					{value: '19',text: '19班'},{value: '20',text: '20班'},{value: '21',text: '21班'},
-					{value: '22',text: '22班'},{value: '23',text: '23班'},{value: '24',text: '24班'},
-					{value: '25',text: '25班'},{value: '26',text: '26班'},{value: '27',text: '27班'},
-					{value: '28',text: '28班'},{value: '29',text: '29班'},{value: '30',text: '30班'},
-					{value: '31',text: '31班'},{value: '32',text: '32班'},{value: '33',text: '33班'},
-					{value: '34',text: '34班'},{value: '35',text: '35班'},{value: '36',text: '36班'},
-					{value: '37',text: '37班'},{value: '38',text: '38班'},{value: '39',text: '39班'},
-					{value: '40',text: '40班'},{value: '41',text: '41班'},{value: '42',text: '42班'},
-					{value: '43',text: '43班'},{value: '44',text: '44班'},{value: '45',text: '45班'},
-				]);
+				classPicker.setData(classData);
 				var showClassPicker = doc.getElementById('showClassPicker');
 				var classResult = doc.getElementById('classPickerResult');
 				showClassPicker.addEventListener('tap', function(event) {
@@ -128,13 +114,7 @@
 				
 				//班级选项
 				var gradePicker = new $.PopPicker();
-				gradePicker.setData([
-					{value: '1',text: '幼儿园小班'},{value: '2',text: '幼儿园中班'},{value: '3',text: '幼儿园大班'},
-					{value: '11',text: '小学1年级'},{value: '12',text: '小学2年级'},{value: '13',text: '小学3年级'},
-					{value: '14',text: '小学4年级'},{value: '15',text: '小学5年级'},{value: '16',text: '小学6年级'},
-					{value: '21',text: '初中1年级'},{value: '22',text: '初中2年级'},{value: '23',text: '初中3年级'},
-					{value: '31',text: '高中1年级'},{value: '32',text: '高中2年级'},{value: '33',text: '高中3年级'},
-				]);
+				gradePicker.setData(gardeData);
 				var showGradeicker = doc.getElementById('showGradePicker');
 				var gradeResult = doc.getElementById('gradePickerResult');
 				showGradeicker.addEventListener('tap', function(event) {
