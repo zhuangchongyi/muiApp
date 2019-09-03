@@ -10,6 +10,9 @@
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="archive/css/public.css">
 		<link rel="stylesheet" type="text/css" href="archive/css/my.css">
+		<link rel="stylesheet" type="text/css" href="css/mui.css">
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.css">
+		<link rel="stylesheet" type="text/css" href="css/mui.poppicker.css">
 	</head>
 
 	<body>
@@ -27,20 +30,15 @@
 						<div class="fl">身份证号</div>
 						<div class="con"><input placeholder="输入身份证号"></div>
 					</li>
-					<!-- <li class="clear bortop">
-						<div class="fl">职业类别</div>
-						<div class="con"><input placeholder="输入职业类别"></div>
-					</li> -->
 				</ul>
 
 				<ul class="list mt10">
 					<li class="clear on">
 						<div class="fl">职业类别</div>
 						<div class="con">
-							<div class="item">
-								<div class="placeholder">请选择职业类别</div>
+							<div class="item" id="occupationPicker">
+								<div class="placeholder" id="occupationResult">请选择职业类别</div>
 							</div>
-						</div>
 					</li>
 				</ul>
 
@@ -48,6 +46,31 @@
 			</div>
 
 		</div>
-
 	</body>
+	<script src="js/mui.js"></script>
+	<script src="js/mui.picker.js"></script>
+	<script src="js/mui.poppicker.js"></script>
+	<script src="js/occupation.data.js"></script>
+	<script>
+		(function($, doc) {
+			$.init();
+			$.ready(function() {
+				//职业类型下拉选项
+				var occupationDataPicker = new $.PopPicker({
+					layer: 2
+				});
+				occupationDataPicker.setData(occpationData);
+				
+				var occupationPicker = doc.getElementById('occupationPicker');
+				var occupationResult = doc.getElementById('occupationResult');
+				occupationPicker.addEventListener('tap', function(event) {
+					occupationDataPicker.show(function(items) {
+						occupationResult.innerText = items[0].text + "/" + items[1].text;
+						//返回 false 可以阻止选择框的关闭
+						//return false;
+					});
+				}, false);
+			});
+		})(mui, document);
+	</script>
 </html>

@@ -10,10 +10,13 @@
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="archive/css/public.css">
 		<link rel="stylesheet" type="text/css" href="archive/css/my.css">
+		<link rel="stylesheet" type="text/css" href="css/mui.css">
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.css">
+		<link rel="stylesheet" type="text/css" href="css/mui.poppicker.css">
 	</head>
 
 	<body>
-
+		
 		<div id="indexPage" style="opacity: 1;">
 			<div class="banner"><img src="archive/img/banner1.jpg"></div>
 			<!-- 学生信息页 start -->
@@ -31,75 +34,35 @@
 				<ul class="list mt10">
 					<li class="clear on">
 						<div class="fl">地区</div>
-						<div class="con areabox">
-							<div class="placeholder">请选择地区</div>
+						<div class="con areabox" id="showCityPicker">
+							<div class="placeholder" id="cityResult">请选择地区</div>
 						</div>
 					</li>
-					<li class="clear bortop on">
-						<div class="fl">年级</div>
-						<div class="con">
-							<div class="item">
-								<div class="placeholder">请选择学年级</div>
-								<select>
-									<option value="41">幼儿园小班</option>
-									<option value="42">幼儿园中班</option>
-									<option value="43">幼儿园大班</option>
-									<option value="11">小学1年级</option>
-									<option value="12">小学2年级</option>
-									<option value="13">小学3年级</option>
-									<option value="14">小学4年级</option>
-									<option value="15">小学5年级</option>
-									<option value="16">小学6年级</option>
-									<option value="21">初中1年级</option>
-									<option value="22">初中2年级</option>
-									<option value="23">初中3年级</option>
-									<option value="31">高中1年级</option>
-									<option value="32">高中2年级</option>
-									<option value="33">高中3年级</option>
-								</select>
-							</div>
-						</div>
-					</li>
-					<li class="clear bortop on">
-						<div class="fl">班别</div>
-						<div class="con">
-							<div class="item">
-								<div class="placeholder">请选择班</div>
-								<select>
-									<option value="1">1班</option>
-									<option value="2">2班</option>
-									<option value="3">3班</option>
-									<option value="4">4班</option>
-									<option value="5">5班</option>
-									<option value="6">6班</option>
-									<option value="7">7班</option>
-									<option value="8">8班</option>
-									<option value="9">9班</option>
-									<option value="10">10班</option>
-									<option value="11">11班</option>
-									<option value="12">12班</option>
-									<option value="13">13班</option>
-									<option value="14">14班</option>
-									<option value="15">15班</option>
-									<option value="16">16班</option>
-									<option value="17">17班</option>
-									<option value="18">18班</option>
-									<option value="19">19班</option>
-									<option value="20">20班</option>
-									<option value="21">21班</option>
-									<option value="22">22班</option>
-									<option value="23">23班</option>
-									<option value="24">24班</option>
-									<option value="25">25班</option>
-								</select>
-							</div>
-						</div>
-					</li>
-					<li class="clear bortop on">
+					<!-- <li class="clear bortop on">
 						<div class="fl">选择学校</div>
 						<div class="con">
 							<div class="item">
 								<div class="placeholder">请选择学校</div>
+							</div>
+						</div>
+					</li> -->
+					<li class="clear bortop">
+						<div class="fl">学校</div>
+						<div class="con"><input placeholder="输入所在学校地址"></div>
+					</li>
+					<li class="clear bortop on">
+						<div class="fl">年级</div>
+						<div class="con">
+							<div class="item" id="showGradePicker">
+								<div class="placeholder" id="gradePickerResult">请选择年级</div>
+							</div>
+						</div>
+					</li>
+					<li class="clear bortop on">
+						<div class="fl">班级</div>
+						<div class="con">
+							<div class="item" id="showClassPicker">
+								<div class="placeholder" id="classPickerResult">请选择班级</div>
 							</div>
 						</div>
 					</li>
@@ -110,4 +73,78 @@
 		</div>
 
 	</body>
+	<script src="js/mui.js"></script>
+	<script src="js/mui.picker.js"></script>
+	<script src="js/mui.poppicker.js"></script>
+	<script src="js/city.data.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		(function($, doc) {
+			$.init();
+			$.ready(function() {
+				//地区三级联示例
+				var cityPicker = new $.PopPicker({
+					layer: 3
+				});
+				cityPicker.setData(cityData3);
+				var showCityPickerButton = doc.getElementById('showCityPicker');
+				var cityResult = doc.getElementById('cityResult');
+				showCityPickerButton.addEventListener('tap', function(event) {
+					cityPicker.show(function(items) {
+						cityResult.innerText = (items[0] || {}).text + "/" + (items[1] || {}).text + "/" + (items[2] || {}).text;
+						//返回 false 可以阻止选择框的关闭
+						//return false;
+					});
+				}, false);
+				
+				//年级选项
+				var classPicker = new $.PopPicker();
+				classPicker.setData([
+					{value: '1',text: '1班'},{value: '2',text: '2班'},{value: '3',text: '3班'},
+					{value: '4',text: '4班'},{value: '5',text: '5班'},{value: '6',text: '6班'},
+					{value: '7',text: '7班'},{value: '8',text: '8班'},{value: '9',text: '9班'},
+					{value: '10',text: '10班'},{value: '11',text: '11班'},{value: '12',text: '12班'},
+					{value: '13',text: '13班'},{value: '14',text: '14班'},{value: '15',text: '15班'},
+					{value: '16',text: '16班'},{value: '17',text: '17班'},{value: '18',text: '18班'},
+					{value: '19',text: '19班'},{value: '20',text: '20班'},{value: '21',text: '21班'},
+					{value: '22',text: '22班'},{value: '23',text: '23班'},{value: '24',text: '24班'},
+					{value: '25',text: '25班'},{value: '26',text: '26班'},{value: '27',text: '27班'},
+					{value: '28',text: '28班'},{value: '29',text: '29班'},{value: '30',text: '30班'},
+					{value: '31',text: '31班'},{value: '32',text: '32班'},{value: '33',text: '33班'},
+					{value: '34',text: '34班'},{value: '35',text: '35班'},{value: '36',text: '36班'},
+					{value: '37',text: '37班'},{value: '38',text: '38班'},{value: '39',text: '39班'},
+					{value: '40',text: '40班'},{value: '41',text: '41班'},{value: '42',text: '42班'},
+					{value: '43',text: '43班'},{value: '44',text: '44班'},{value: '45',text: '45班'},
+				]);
+				var showClassPicker = doc.getElementById('showClassPicker');
+				var classResult = doc.getElementById('classPickerResult');
+				showClassPicker.addEventListener('tap', function(event) {
+					classPicker.show(function(items) {
+						classResult.innerText = items[0].text;
+						//返回 false 可以阻止选择框的关闭
+						//return false;
+					});
+				}, false);
+				
+				//班级选项
+				var gradePicker = new $.PopPicker();
+				gradePicker.setData([
+					{value: '1',text: '幼儿园小班'},{value: '2',text: '幼儿园中班'},{value: '3',text: '幼儿园大班'},
+					{value: '11',text: '小学1年级'},{value: '12',text: '小学2年级'},{value: '13',text: '小学3年级'},
+					{value: '14',text: '小学4年级'},{value: '15',text: '小学5年级'},{value: '16',text: '小学6年级'},
+					{value: '21',text: '初中1年级'},{value: '22',text: '初中2年级'},{value: '23',text: '初中3年级'},
+					{value: '31',text: '高中1年级'},{value: '32',text: '高中2年级'},{value: '33',text: '高中3年级'},
+				]);
+				var showGradeicker = doc.getElementById('showGradePicker');
+				var gradeResult = doc.getElementById('gradePickerResult');
+				showGradeicker.addEventListener('tap', function(event) {
+					gradePicker.show(function(items) {
+						showGradeicker.innerText = items[0].text;
+						//返回 false 可以阻止选择框的关闭
+						//return false;
+					});
+				}, false);
+			});	
+		})(mui, document);
+	</script>
 </html>
